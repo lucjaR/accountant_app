@@ -1,4 +1,5 @@
 import {css, keyframes} from '@emotion/react';
+import {colors} from "../../GeneralStyles";
 
 const loadingAnimation = keyframes`
     from, 0%, 20%, 80%, 100%, to {
@@ -18,7 +19,7 @@ export const loading = css`
     position: absolute;
     width: 6px;
     height: 6px;
-    background: red;
+    background: ${colors.blue1};
     border-radius: 50%;
     animation: ${loadingAnimation} 1.2s linear infinite;
   }
@@ -27,59 +28,59 @@ export const loading = css`
     top: 37px;
     left: 66px;
   }
-div:nth-of-type(2) {
+  div:nth-of-type(2) {
     animation-delay: -0.1s;
     top: 22px;
     left: 62px;
-}
-div:nth-of-type(3) {
+  }
+  div:nth-of-type(3) {
     animation-delay: -0.2s;
     top: 11px;
     left: 52px;
-}
- div:nth-of-type(4) {
+  }
+  div:nth-of-type(4) {
     animation-delay: -0.3s;
     top: 7px;
     left: 37px;
-}
-div:nth-of-type(5) {
+  }
+  div:nth-of-type(5) {
     animation-delay: -0.4s;
     top: 11px;
     left: 22px;
-}
- div:nth-of-type(6) {
+  }
+  div:nth-of-type(6) {
     animation-delay: -0.5s;
     top: 22px;
     left: 11px;
-}
-div:nth-of-type(7) {
+  }
+  div:nth-of-type(7) {
     animation-delay: -0.6s;
     top: 37px;
     left: 7px;
-}
-div:nth-of-type(8) {
+  }
+  div:nth-of-type(8) {
     animation-delay: -0.7s;
     top: 52px;
     left: 11px;
-}
-div:nth-of-type(9) {
+  }
+  div:nth-of-type(9) {
     animation-delay: -0.8s;
     top: 62px;
     left: 22px;
-}
-div:nth-of-type(10) {
+  }
+  div:nth-of-type(10) {
     animation-delay: -0.9s;
     top: 66px;
     left: 37px;
-}
-div:nth-of-type(11) {
+  }
+  div:nth-of-type(11) {
     animation-delay: -1s;
     top: 62px;
     left: 52px;
-}
- div:nth-of-type(12) {
+  }
+  div:nth-of-type(12) {
     animation-delay: -1.1s;
     top: 52px;
     left: 62px;
-}
+  }
 `;

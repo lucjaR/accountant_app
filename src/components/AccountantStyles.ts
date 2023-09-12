@@ -15,6 +15,8 @@ const commonStyles = css`
   overflow: hidden;
 `;
 export const accountantContainer = css`
+  display: flex;
+  flex-direction: column;
   border-radius: 16px;
   border: 1px solid ${colors.gray1};
   margin: 12px;
@@ -24,7 +26,6 @@ export const accountantContainer = css`
   height: 376px;
   box-sizing: border-box;
 `;
-
 export const accountantAvatarAndName = css`
   display: flex;
 `;
@@ -59,11 +60,8 @@ export const currency = css`
   line-height: 16px;
   padding-left: 4px;
 `;
-export const buttonStyles = css`
-  background-color: ${colors.blue1};
-  border-radius: 8px;
-  opacity: 1;
-  color: ${colors.blue2};
-  border: #E3F2FD;
-  padding: 8px 16px;
+export const buttonContainer = css`
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-end;
 `;

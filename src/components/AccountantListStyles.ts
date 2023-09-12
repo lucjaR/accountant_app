@@ -6,6 +6,8 @@ export const accountantListContainer = css`
   flex-direction: column;
   padding: 24px 40px;
   align-items: center;
+  max-width: 1400px;
+  margin: auto;
   
   @media(min-width: 768px) {
     padding: 40px;
@@ -26,9 +28,4 @@ export const accountantList = css`
     flex-direction: row;
     flex-wrap: wrap;
   }
-`;
-export const buttonStyles = css`
-  background-color: ${colors.blue1};
-  border-radius: 8px;
-  opacity: 1;
 `;

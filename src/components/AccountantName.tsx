@@ -10,7 +10,7 @@ type PropsType = {
 
 const AccountantName = ({name}: PropsType) => {
     return (
-        <div css={nameStyles}>{`${name.first} ${name.last}`}</div>
+        <div css={nameStyles} title={`${name.first} ${name.last}`}>{`${name.first} ${name.last}`}</div>
     );
 }
 

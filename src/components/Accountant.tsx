@@ -7,7 +7,8 @@ import {
     accountantDetails,
     accountantDetailsContainer,
     accountantName,
-    accountantPhone, buttonStyles,
+    accountantPhone,
+    buttonContainer,
     currency
 } from "./AccountantStyles";
 import Avatar from "./common/Avatar";
@@ -19,9 +20,8 @@ type PropsType = {
     accountant: AccountantType;
 }
 const Accountant = ({accountant}: PropsType) => {
-    const genderLabel = accountant.gender === GenderType.male ? 'Twoja księgowy' : 'Twoja księgowa';
+    const genderLabel = accountant.gender === GenderType.male ? 'Twój księgowy' : 'Twoja księgowa';
 
-    console.log('acc', accountant)
     return (
         <div css={accountantContainer}>
             <div css={accountantAvatarAndName}>
@@ -34,7 +34,9 @@ const Accountant = ({accountant}: PropsType) => {
 
             <div css={accountantDetailsContainer}>
                 <Label label={'E-mail'} size={14} lineHeight={20}/>
-                <a href={`mailto:${accountant.email}`} css={accountantDetails} >{accountant.email}</a>
+                <a href={`mailto:${accountant.email}`} title={accountant.email} css={accountantDetails}>
+                    {accountant.email}
+                </a>
             </div>
             <div css={accountantDetailsContainer}>
                 <Label label={'Telefon'} size={14} lineHeight={20}/>
@@ -47,7 +49,9 @@ const Accountant = ({accountant}: PropsType) => {
                     <span css={currency}>PLN</span>
                 </div>
             </div>
-            <Button />
+            <div css={buttonContainer}>
+                <Button label={'Dowiedz się więcej'} onClick={() => {}}/>
+            </div>
         </div>
     );
 }

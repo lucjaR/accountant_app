@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import './index.css';
+//import './firebaseInit';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

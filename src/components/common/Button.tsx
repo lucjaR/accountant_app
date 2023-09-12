@@ -1,11 +1,15 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
+import { css } from '@emotion/react';
 
-import {buttonStyles} from "../AccountantStyles";
+import {buttonStyles} from "./ButtonStyles";
 
-const Button = () => {
+type PropsType = {
+    label: string;
+    onClick: () => void;
+}
+const Button = ({label, onClick}: PropsType) => {
     return (
-        <button css={buttonStyles}>Dowiedz się więcej</button>
+        <button onClick={onClick} css={buttonStyles}>{label}</button>
     );
 }
 

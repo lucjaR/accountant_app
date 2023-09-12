@@ -1,11 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
+import { css } from '@emotion/react';
+import React, {useEffect, useState} from "react";
 
 import {AccountantType} from "../Types";
 import Accountant from "./Accountant";
-import {accountantList, accountantListContainer, buttonStyles} from "./AccountantListStyles";
-import React, {useEffect, useState} from "react";
+import {accountantList, accountantListContainer} from "./AccountantListStyles";
 import {accountantsService} from "../services/AccountantsService";
+import Button from "./common/Button";
 
 const AccountantList = () => {
     const [accountants, setAccountants] = useState<Array<AccountantType>>([]);
@@ -22,11 +23,11 @@ const AccountantList = () => {
     return (
         <div css={accountantListContainer}>
             <div css={accountantList}>
-                {accountants.map((accuntant:AccountantType) => {
-                    return <Accountant key={accuntant.login.uuid} accountant={accuntant} />
+                {accountants.map((accountant: AccountantType) => {
+                    return <Accountant key={accountant.login.uuid + accountant.email} accountant={accountant} />
                 })}
             </div>
-            {accountants.length > 0 && <button onClick={() => loadMore()} css={buttonStyles}>więcej</button>}
+            {accountants.length > 0 && <Button label={'Więcej'} onClick={()=> loadMore()}/>}
         </div>
     );
 }
