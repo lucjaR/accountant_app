@@ -7,9 +7,10 @@ class AccountantsService {
         }).then(response => {
             if (response.ok) {
                 return response.json();
-            } else {
-                return Promise.resolve({results: []});
             }
+            throw Error(response.statusText);
+        }).catch((error) => {
+            throw Error("Nie można pobrać danych")
         })
     }
 }

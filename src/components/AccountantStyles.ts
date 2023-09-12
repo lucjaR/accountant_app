@@ -17,6 +17,7 @@ const commonStyles = css`
 export const accountantContainer = css`
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   border-radius: 16px;
   border: 1px solid ${colors.gray1};
   margin: 12px;

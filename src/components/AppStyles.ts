@@ -5,10 +5,5 @@ export const appStyles = css`
   flex-direction: column;
   margin: auto;
   width: 100vw;
-`;
-export const loadingContainer = css`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+  padding-bottom: 64px;
 `;

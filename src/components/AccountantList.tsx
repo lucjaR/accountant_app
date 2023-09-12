@@ -1,33 +1,32 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-import React, {useEffect, useState} from "react";
+import React, {useRef, useState} from "react";
 
-import {AccountantType} from "../Types";
-import Accountant from "./Accountant";
 import {accountantList, accountantListContainer} from "./AccountantListStyles";
-import {accountantsService} from "../services/AccountantsService";
 import Button from "./common/Button";
+import ErrorBoundary from "./common/ErrorBoundary";
+import AccountantPageList from "./AccountantPageList";
 
 const AccountantList = () => {
-    const [accountants, setAccountants] = useState<Array<AccountantType>>([]);
-    const [pages, setPages] = useState(1);
-
-    useEffect(() => {
-        accountantsService.getAccountantData(pages, 5).then((result) => setAccountants(accountants.concat(result.results)))
-    }, [pages]);
+    const currentPage = useRef(0);
+    const [pages, setPages] = useState([currentPage.current]);
 
     const loadMore = () => {
-        setPages(pages => pages + 1);
+        currentPage.current = currentPage.current + 1
+        setPages(pages => pages.concat(currentPage.current));
     }
 
     return (
         <div css={accountantListContainer}>
             <div css={accountantList}>
-                {accountants.map((accountant: AccountantType) => {
-                    return <Accountant key={accountant.login.uuid + accountant.email} accountant={accountant} />
-                })}
+                <ErrorBoundary messageText={"O nie! Coś poszło nie tak"}>
+                    {pages.map((page: number) => {
+                        return (
+                            <AccountantPageList key={page} page={page}/>
+                        );
+                    })}
+                </ErrorBoundary>
             </div>
-            {accountants.length > 0 && <Button label={'Więcej'} onClick={()=> loadMore()}/>}
+            <Button label={'Więcej'} onClick={() => loadMore()}/>
         </div>
     );
 }

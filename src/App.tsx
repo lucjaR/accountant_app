@@ -1,19 +1,18 @@
 /** @jsxImportSource @emotion/react */
-import React, {Suspense, lazy} from 'react';
-import {css} from '@emotion/react'
+import React from 'react';
 
-import Loading from "./components/common/Loading";
-import {appStyles, loadingContainer} from "./components/AppStyles";
+import {appStyles} from "./components/AppStyles";
 import Logo from "./components/common/Logo";
+import ErrorBoundary from "./components/common/ErrorBoundary";
+import AccountantList from "./components/AccountantList";
 
 function App() {
-    const AccountantList = lazy(() => import('./components/AccountantList'))
     return (
         <div css={appStyles}>
-            <Suspense fallback={<div css={loadingContainer}><Loading/></div>}>
-                <Logo />
+            <ErrorBoundary messageText={"O nie! Coś poszło nie tak"}>
+                <Logo/>
                 <AccountantList/>
-            </Suspense>
+            </ErrorBoundary>
         </div>
     );
 }
